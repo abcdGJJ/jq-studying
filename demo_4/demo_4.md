@@ -65,3 +65,23 @@
 
 3. 可见性过滤选择器
 
+
+|   选择器    |    描述     |  返回  |                    示例                    |
+| :------: | :-------: | :--: | :--------------------------------------: |
+| :hidden  | 选取所有不可见元素 | 集合元素 | $(:hidden)，包括\<input type="hidden"\>，\<div style="display:none;"\>和\<div style="visibility:hidden;"\>等元素 |
+| :visible | 选取所有可见元素  | 集合元素 |             $("div:visible")             |
+
+ 4.属性过滤选择器
+
+|            选择器             |                   描述                   |  返回  |                    示例                    |
+| :------------------------: | :------------------------------------: | :--: | :--------------------------------------: |
+|        [attribute]         |               选取拥有此元素的元素               | 集合元素 |         $("div[id]")选取拥有属性id的元素          |
+|     [attribute=value]      |             选取属性值为value的元素             | 集合元素 |           $("div[title=test]")           |
+|     [attribute!=value]     |                                        |      |          $("div[title!=test]")           |
+|     [attribute^=value]     |            选取属性值以value开头的元素            |      | \$("a[href^=#]")选取所有以#开头的链接。$("div[title^=test]")选取属性title以test开始的div元素。 |
+|     [attribute$=value]     |            选取属性值以value结束的元素            | 集合元素 |          $("div[title\$=test]")          |
+|     [attribute*=value]     |            选取属性值含有value的元素             |      | $("div[title*=test]")选取属性title含有test的div元素 |
+|    [attribute\|=value]     | 选取属性等于给定字符串或以该字符串为前缀（该字符串后面跟一个连字符-）的元素 |      |          $('div[title\|="en]')           |
+|     [attribute~=value]     |         选取属性用空格分隔的值中包含一个给定值的元素         |      |         $('div[title~="test"]')          |
+| [attribute1]\[attribute2\] |                  复合选取                  |      |       \$("div\[id][title$=title]")       |
+
