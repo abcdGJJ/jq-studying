@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>某网站品牌列表</title>
+    <style type="text/css">
+    ul {
+        list-style: none;
+    }
+    
+    li {
+        float: left;
+        width: 33%;
+    }
+    
+    .subCategoryBox:after {
+        content: " ";
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+    
+    .showmore {
+        margin: 20px;
+        text-align: center;
+    }
+    
+    .promoted a {
+        color: #f00;
+    }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="subCategoryBox">
+        <ul>
+            <li><a href="#">佳能</a><i>(30440)</i></li>
+            <li><a href="#">索尼</a><i>(30440)</i></li>
+            <li><a href="#">三星</a><i>(30440)</i></li>
+            <li><a href="#">松下</a><i>(30440)</i></li>
+            <li><a href="#">尼康</a><i>(30440)</i></li>
+            <li><a href="#">富士</a><i>(30440)</i></li>
+            <li><a href="#">理光</a><i>(30440)</i></li>
+            <li><a href="#">明基</a><i>(30440)</i></li>
+            <li><a href="#">爱国者</a><i>(30440)</i></li>
+            <li><a href="#">其他</a><i>(30440)</i></li>
+        </ul>
+    </div>
+    <div class="showmore">
+        <a href="more.html"><span>显示全部</span></a>
+    </div>
+    <script>
+    $(function() {
+        var $category = $("ul li:gt(5):not(:last)");
+        $category.hide();
+        var $toggleBtn = $("div.showmore > a");
+        $toggleBtn.click(function() {//或者使用toggle方法
+            if ($category.is(":visible")) {
+                $category.hide();
+                $(this).find("span").css("border", "0").text("显示全部");
+                $("ul li").removeClass("promoted");
+                return false;
+            } else {
+                $category.show();
+                $(this).find("span").css("border", "1px solid #000").text("精简");
+                $("ul li").filter(":contains('佳能'),:contains('尼康'),:contains('富士')").addClass("promoted");
+                return false;
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

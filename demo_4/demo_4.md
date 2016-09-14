@@ -75,7 +75,7 @@
 
 |            选择器             |                   描述                   |  返回  |                    示例                    |
 | :------------------------: | :------------------------------------: | :--: | :--------------------------------------: |
-|        [attribute]         |               选取拥有此元素的元素               | 集合元素 |         $("div[id]")选取拥有属性id的元素          |
+|        [attribute]         |               选取拥有此元素的元素               | 集合元素 |        $("div['id']")选取拥有属性id的元素         |
 |     [attribute=value]      |             选取属性值为value的元素             | 集合元素 |           $("div[title=test]")           |
 |     [attribute!=value]     |                                        |      |          $("div[title!=test]")           |
 |     [attribute^=value]     |            选取属性值以value开头的元素            |      | \$("a[href^=#]")选取所有以#开头的链接。$("div[title^=test]")选取属性title以test开始的div元素。 |
@@ -118,3 +118,19 @@ nth-child()选择器是很常用的子元素过滤选择器，不过要注意选
 | :disabled |  选取所有不可用元素   | 集合元素 |           $("#form2 :disable")           |
 | :checked  |  选取所有被选中的元素  | 集合元素 |       $("input:checked")选取所有被选中的元素       |
 | :selected | 选取所有被选中的选项元素 | 集合元素 |  $("select option:selected")选择所有被选中的元素   |
+
+
+
+## 注意事项
+
+1. 选择器中带有"."、"#"、"("等字符
+
+注意转义：$("#id\\\\#b");
+
+2. 选择器中的空格
+
+```javascript
+$(".test :hidden");//class为test的元素里面的隐藏元素
+$(".test:hidden");//隐藏的class为test的元素
+```
+
