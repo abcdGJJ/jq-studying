@@ -74,3 +74,29 @@ $("ul").append($li_2);
 | insertAfter()  |                  颠倒上一条                   |                                          |
 |    before()    |                在元素之前添加内容                 |                                          |
 | insertBefore() |                  颠倒上一条                   |                                          |
+
+##### 删除节点
+
+- remove()方法
+
+```javascript
+var $li = $("ul li:eq(1)").remove();//删除第二个li元素
+$li.appendTo("ul");//把刚才删除的节点又重新添加到ul元素里
+```
+
+也可以使用appendTo()方法来简化以上代码
+
+```javascript
+$("ul li:eq(1)").appendTo("ul");
+//appendTo()也可以用于移动元素
+//移动元素时首先从文档上删除此元素，然后将元素插入到文档节点
+```
+
+也可以通过传参来选择性地删除元素
+
+```javascript
+$("ul li").remove("li[title!=菠萝]");
+```
+
+
+
