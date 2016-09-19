@@ -98,5 +98,25 @@ $("ul li:eq(1)").appendTo("ul");
 $("ul li").remove("li[title!=菠萝]");
 ```
 
+- detach()方法
+
+这个方法不会把匹配的元素从jquery对象中删除，因而可以在将来再使用这些匹配的元素。与remove()不同的是，所有绑定的事件、附加的数据都会保留下来
+
+```javascript
+$("ul li").click(function() {
+  alert($(this).html());
+});
+var $li = $("ul li:eq(1)").detach();
+$li.appendTo("ul");//重新增加元素，并保留绑定事件
+```
+
+- empty()方法
+
+严格的讲，empty()并不是删除节点，而是清空节点
+
+```javascript
+$("ul li:eq(1)").empty();//清空元素里的内容，注意是内容
+```
+
 
 

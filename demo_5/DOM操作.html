@@ -19,7 +19,11 @@
     </ul>
     <script>
     $(function() {
-        $("ul li").remove("li[title!=菠萝]");
+        // $("ul li").click(function() {
+        //     alert($(this).html());
+        // });
+        var $li = $("ul li:eq(1)").empty();
+        // $li.appendTo("ul");
     });
     </script>
 </body>
