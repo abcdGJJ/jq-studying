@@ -118,5 +118,55 @@ $li.appendTo("ul");//重新增加元素，并保留绑定事件
 $("ul li:eq(1)").empty();//清空元素里的内容，注意是内容
 ```
 
+##### 复制节点
 
+```javascript
+$("ul li").click(function(){
+  $(this).clone().appendTo("ul");//复制当前点击的结点并追加到ul里
+});
+```
+
+复制节点后，被复制的新元素并不具备任何行为。如果需要新元素也具有复制功能，可以这样做：
+
+```javascript
+$(this).clone(true).appendTo("body");
+```
+
+##### 替换节点
+
+```javascript
+$("p").replaceWith("<strong>hello world</strong>");
+//或
+$("<strong>hello world</strong>").replaceAll("p");
+```
+
+##### 包裹节点
+
+```javascript
+$("strong").wrap("<p></p>");//用<p>标签把<strong>元素包起来
+```
+
+
+
+# 属性操作
+
+##### 获取属性和设置属性
+
+```javascript
+var $para = $("p");
+var p_txt = $para.attr("title");//获取title
+
+$("p").attr("title", "test title");
+$("p").attr({"title": "test title", "name": "test name"});
+```
+
+##### 删除属性
+
+```javascript
+$("p").removeAttr("title");
+```
+
+
+
+# 样式操作
 
