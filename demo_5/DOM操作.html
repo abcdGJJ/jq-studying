@@ -5,7 +5,18 @@
     <meta charset="UTF-8">
     <title>Dom操作</title>
     <style type="text/css">
-
+    li {
+        list-style: none;
+    }
+    .hh{
+        width: 200px;
+        height: 200px;
+        background-color: #ff0000;
+        transition: all .5s ease;
+    }
+    .test {
+        height: 500px;
+    }
     </style>
     <script src="../jquery-3.1.0.min.js"></script>
 </head>
@@ -15,14 +26,14 @@
     <ul>
         <li title="苹果">苹果</li>
         <li title="菠萝">菠萝</li>
-        <li title="橘子">橘子</li>
+        <li title="橘子" class="hh">橘子</li>
     </ul>
     <script>
     $(function() {
-        // $("ul li").click(function() {
+        $("ul li").click(function() {
         //     $(this).clone(true).appendTo("ul");
-        // });
-        $("p").attr("title","test");
+            $("li:eq(2)").toggleClass("test");
+        });
         // var $li = $("ul li:eq(1)").empty();
         // $li.appendTo("ul");
     });

@@ -170,3 +170,74 @@ $("p").removeAttr("title");
 
 # 样式操作
 
+##### 获取样式和设置样式
+
+```html
+<p class="myClass">hh</p>
+var $p_class = $("p").attr("class");
+```
+
+##### 追加样式
+
+```javascript
+$("p").addClass("anotherclass");
+```
+
+##### 移除样式
+
+```javascript
+$("p").removeClass("anotherclass");
+$("p").removeClass("anotherclass myClass");
+```
+
+##### 切换样式
+
+```javascript
+$("p").toggleClass("another");//重复切换类名another
+```
+
+##### 判断是否含有某个样式
+
+```javascript
+$("p").hasClass("another");
+```
+
+
+
+## 设置和获取HTML、文本和值
+
+##### html方法，类似于innerHTML属性
+
+```javascript
+var $p_html = $("p").html();
+```
+
+##### text()方法，类似于innerTEXT属性
+
+```javascript
+var $p_text = $("p").text();
+```
+
+##### val()方法，类似于value属性
+
+```javascript
+$(function() {
+  $("#address").focus(function() {
+    var $txt_value = $(this).val();
+    if($txt_value == "请输入邮件地址") {
+      $(this).val("");
+    }
+  });
+  $("#address").blur(function(){
+    var $txt_value = $(this).val();
+    if($txt_value == "") {
+      $(this).val( "请输入邮件地址");
+    }
+  });
+});
+```
+
+
+
+
+
