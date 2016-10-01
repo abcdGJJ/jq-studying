@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <title>元素定位</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        margin: 20px;
+    }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <p>你最喜欢的水果是？</p>
+    <script>
+    $(function() {
+        var offset = $("p").offset();
+        alert(offset.top);
+       
+    });
+    </script>
+</body>
+
+</html>

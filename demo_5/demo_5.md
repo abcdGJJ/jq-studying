@@ -239,5 +239,54 @@ $(function() {
 
 
 
+# 遍历节点
+
+##### children()方法
+
+```javascript
+var $body = $("body").children();
+for(var i=0, len=$body.length; i< len; i++) {
+  alert($body[i].innerHTML);
+}
+```
+
+##### next()方法
+
+该方法可以获得匹配元素后面紧邻的同辈元素
+
+##### prev()方法
+
+该方法可以获得匹配元素前面紧邻的同辈元素
+
+##### siblings()方法
+
+获取匹配元素前后所有同辈元素
+
+##### closest()
+
+获取最近的匹配元素
 
 
+
+# CSS-DOM操作
+
+##### 获取元素样式属性
+
+```javascript
+$("p").css("color");
+$("p").css("color": "#ff0000", "width": "30px");
+```
+
+##### 元素定位方法
+
+offset()方法获取元素在当前视窗的相对偏移
+
+```javascript
+var offset = $("p").offset();
+var left = offset.left;
+var top = offset.top;
+```
+
+position()方法获取元素相对于最近的一个position设置为relative/absolute的祖父节点的相对偏移
+
+scrollTop()方法和scrollLeft()方法获取滚动条滚动距离
