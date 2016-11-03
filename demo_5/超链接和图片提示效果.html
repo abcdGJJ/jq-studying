@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>超链接和图片提示效果</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    p {
+        margin: 10px;
+    }
+    
+    #tooltip {
+        position: absolute;
+        border: 1px solid #000;
+    }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <p>
+        <a href="#" class="tooltip" title="这是我的超链接提示1">提示1</a>
+    </p>
+    <p>
+        <a href="#" class="tooltip" title="这是我的超链接提示2">提示2</a>
+    </p>
+    <p>
+        <a href="#" title="这是自带提示1">自带提示1</a>
+    </p>
+    <p>
+        <a href="#" title="这是自带提示2">自带提示2</a>
+    </p>
+    <script>
+    $(function() {
+        var x = 10,
+            y = 20;
+        $('a.tooltip').mouseover(function(e) {
+            // 创建div元素
+            this.myTitle = this.title
+            this.title = ''
+            var tooltip = '<div id="tooltip">' + this.myTitle + '</div>'
+            $('body').append(tooltip)
+            $('#tooltip').css({
+                'top': (e.pageY + y) + 'px', // pageY为鼠标指针Y坐标
+                'left': (e.pageX + x) + 'px'
+            }).show('fast')
+        }).mouseout(function(e) {
+            //移除div
+            this.title = this.myTitle
+            $('#tooltip').remove()
+        }).mousemove(function(e) {
+            $('#tooltip').css({
+                'top': (e.pageY + y) + 'px', // pageY为鼠标指针Y坐标
+                'left': (e.pageX + x) + 'px'
+            })
+        })
+    })
+    </script>
+</body>
+
+</html>
