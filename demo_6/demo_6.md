@@ -28,3 +28,14 @@ type包括：blur、focus、load、resize...等事件
 
 第三个参数则是用来绑定的处理函数
 
+3. 合成事件
+
+```javascript
+hover(enter, leave)
+// 模拟鼠标悬停事件，移动到元素上会触发第一个函数
+toggle(fn1, fn2, ...fnN)
+// $('').toggle(function(){},function(){})
+```
+
+
+

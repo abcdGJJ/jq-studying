@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Microsoft Yahei";
+    }
+    #panel {
+        border: 1px solid #000;
+    }
+    h5.head {
+        background-color: #ddd;
+    }
+    .content {
+        display: none;
+        padding: 20px;
+    }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <div id="panel">
+        <h5 class="head">什么是JQuery</h5>
+        <div class="content">
+            <p>JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...JQuery是...之后的...blablabal...</p>
+        </div>
+    </div>
+    <script>
+    $(function () {
+        $('#panel h5.head').hover(function () {
+            $(this).next().show()
+        },function () {
+            $(this).next().hide()
+        })
+    })
+    </script>
+</body>
+</html>
