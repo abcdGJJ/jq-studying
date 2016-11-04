@@ -1,0 +1,30 @@
+{
+  "name": "jq-studying",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-3.1.0.min.js",
+  "dependencies": {
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abcdGJJ/jq-studying.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abcdGJJ/jq-studying/issues"
+  },
+  "homepage": "https://github.com/abcdGJJ/jq-studying#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
