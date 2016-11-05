@@ -37,5 +37,27 @@ toggle(fn1, fn2, ...fnN)
 // $('').toggle(function(){},function(){})
 ```
 
+4. 事件冒泡
+
+由事件元素向外层冒泡
+
+停止事件冒泡：
+
+```javascript
+$('').bind('click', function(e) {
+  e.stopProgation()
+})
+```
+
+阻止默认行为：
+
+```javascript
+e.preventDefault()
+```
+
+5. 事件捕获
+
+由外向事件元素冒泡
+
 
 
