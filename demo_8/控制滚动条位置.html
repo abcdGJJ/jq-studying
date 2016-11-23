@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制滚动条位置</title>
+    <style type="text/css">
+    .focus {
+        border: 1px solid #f00;
+        background: #fcc;
+    }
+    </style>
+    <script type="text/javascript" src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <form action="#" method="POST" id="regForm">
+        <div class="msg">
+            <div class="msg_caption">
+                <span class="up">向上</span>
+                <span class="down">向下</span>
+            </div>
+            <div>
+                <textarea id="comment" rows="8" cols="20">多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本</textarea>
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    $(function () {
+        var $comment = $('#comment')
+        $('.up').click(function () {
+            if (!$comment.is(":animated")) {
+                $comment.animate({scrollTop: "-=50"}, 400)
+            }
+        })
+        $('.down').click(function () {
+            if (!$comment.is(":animated")) {
+                $comment.animate({scrollTop: "+=50"}, 600)
+            }
+        })
+    })
+    </script>
+</body>
+</html>
