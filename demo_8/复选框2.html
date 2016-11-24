@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框2</title>
+    <script type="text/javascript" src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <form>
+        你爱好的运动是？<br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球<br>
+        <input type="checkbox" id="check" value="全选 / 全不选">全不选
+    </form>
+    <script type="text/javascript">
+    $(function () {
+        // 注意：不能用attr获取
+        $('#check').click(function (e) {
+            $('[name = items]:checkbox').prop('checked', this.checked)
+        })
+        $('[name = items]:checkbox').click(function () {
+            var $tmp = $('[name = items]:checkbox')
+            $('#check').prop('checked', $tmp.length === $tmp.filter(':checked').length)
+        })
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+    }
+    body > div {
+        padding: 20px;
+    }
+    span {
+        display: block;
+        border: 1px solid #eee;
+        margin: 10px 0;
+        cursor: pointer;
+        background: #333; 
+        color: #fff;
+    }
+    </style>
+    <script type="text/javascript" src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <select multiple id="select1" style="width: 100px; height: 160px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+        <div>
+            <span id="add">选中添加到右边</span>
+            <span id="addAll">全部添加到右边</span>
+        </div>
+    </div>
+    <div class="content">
+        <select multiple id="select2" style="width: 100px; height: 160px;"></select>
+        <div>
+            <span id="remove">选中删除到左边</span>
+            <span id="removeAll">全部删除到左边</span>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function () {
+        $('#add').click(function () {
+            var $options = $('#select1 option:selected')
+            $options.appendTo('#select2')
+        })
+        $('#addAll').click(function () {
+            var $options = $('#select1 option')
+            $options.appendTo('#select2')
+        })
+        $('#select1').dblclick(function () {
+            var $options = $('option:selected', this)
+            $options.appendTo('#select2')
+        })
+        $('#remove').click(function () {
+            var $options = $('#select2 option:selected')
+            $options.appendTo('#select1')
+        })
+        $('#removeAll').click(function () {
+            var $options = $('#select2 option')
+            $options.appendTo('#select1')
+        })
+        $('#select2').dblclick(function () {
+            var $options = $('option:selected', this)
+            $options.appendTo('#select1')
+        })
+    })
+    </script>
+</body>
+</html>
