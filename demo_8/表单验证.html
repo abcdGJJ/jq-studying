@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .high {
+        color: #f00;
+    }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <form action="" method="post">
+        <div class="int">
+            <label for="username">用户名</label>
+            <input type="text" id="username" class="required">
+        </div>
+        <div class="int">
+            <label for="email">邮箱</label>
+            <input type="text" id="email" class="required">
+        </div>
+        <div class="int">
+            <label for="personinfo">个人资料</label>
+            <input type="text" id="personinfo">
+        </div>
+        <div class="sub">
+            <input type="submit" value="提交" id="send">
+            <input type="reset" id="yes">
+        </div>
+    </form>
+    <script>
+    $(function () {
+        $('form :input.required').each(function () {
+            var $required = $('<strong class="high">*</strong>')
+            $(this).parent().append($required)
+        })
+        $('form :input').blur(function () {
+            var $parent = $(this).parent()
+            $parent.find('.tip').remove()
+            if ($(this).is('#username')) {
+                if (this.value == '' || this.value.length < 6) {
+                    var error = '请输入6位用户名'
+                    $parent.append('<span class="tip error">' + error + '</span>')
+                } else {
+                    var ok = '输入正确'
+                    $parent.append('<span class="tip">' + ok + '</span>')
+                }
+            }
+            if ($(this).is('#email')) {
+                if (this.value == '' || this.value != '' && !/^.+@.+\.[a-zA-Z]+$/.test(this.value)) {
+                    var error = '请输入正确的email地址'
+                    $parent.append('<span class="tip error">' + error + '</span>')
+                } else {
+                    var ok = '输入正确'
+                    $parent.append('<span class="tip">' + ok + '</span>')
+                }
+            }
+        }).keyup(function () {
+            $(this).triggerHandler('blur') //不产生事件冒泡
+        }).focus(function () {
+            $(this).triggerHandler('blur') //不产生事件冒泡
+        })
+        $('#send').click(function () {
+            $('form .required:input').trigger('blur')
+            var numError = $('form .error').length
+            if(numError) {
+                return false
+            }
+            alert('注册成功')
+        })
+    })
+    </script>
+</body>
+</html>
