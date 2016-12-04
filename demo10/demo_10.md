@@ -30,7 +30,7 @@ $.get('get.php', {
 }, function (data, textStatus) {
   var user = data.user
   var con = data.con
-  var html = '<div>' + user + con + </div>'
+  var html = '<div>' + user + con + '</div>'
   $('text').html(html)
 }, 'json')
 ```
@@ -69,10 +69,38 @@ $.getJSON('test.json', function (data) {
 $.getJSON('test.json', function (data) {
   var html = ''
   $.each(data.comments, function (index, item) {
-    $('#info').append('<div>'+item.id + item.nickname + nick.content'</div>'')
+    $('#info').append('<div>'+ item.id + item.nickname + nick.content + '</div>')
   })
 })
 ```
 
+##### ajax()方法
 
+```javascript
+$.ajax(options)
+```
+
+|     名称     |       类型        |                    说明                    |
+| :--------: | :-------------: | :--------------------------------------: |
+|    url     |     string      |                 发送请求的地址                  |
+|    type    |     string      |           GET、POST、PUT、DELETE            |
+|  timeout   |     number      |                  请求超时时间                  |
+|    data    | object / string |                                          |
+|  dataType  |     string      | xml / html / script / json / jsonp / jQuery / text |
+| beforeSend |    fucntion     |       发送请求前可以修改XMLHttpRequest对象的函数       |
+|  complete  |    function     |               请求完成后调用的回调函数               |
+|  success   |    function     | 请求成功后调用的回调函数，有两个参数。1.由服务器返回，并根据dataType参数进行处理后的数据。2.描述状态的字符串。function (data, textStatus) {} |
+|   error    |    function     | 失败时调用。三个参数。function (XMLHttpRequest, textStatus, error) { // 通常情况下textStatus、error只有一个包含信息} |
+|   global   |     boolean     |          默认为true。表示是否触发全局Ajax事件          |
+
+```javascript
+$(function () {
+  $.ajax({
+    type: 'GET',
+    url: 'test.json',
+    dataType: 'json',
+    success: function (data) {}
+  })
+})
+```
 
